@@ -1,0 +1,8 @@
+{
+  "mcpServers": {
+    "vidakind": {
+      "type": "http",
+      "url": "https://vidakind.com/mcp"
+    }
+  }
+}

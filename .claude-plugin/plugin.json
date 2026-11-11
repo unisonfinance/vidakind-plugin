@@ -1,0 +1,26 @@
+{
+  "name": "vidakind",
+  "displayName": "VidaKind",
+  "version": "2.0.0",
+  "description": "Find independent care businesses in Australia that visit your suburb, compare their services and published prices, and send an enquiry to the one you choose. Connects your VidaKind account and teaches your assistant to search fairly, explain the terms and ask before sending.",
+  "author": {
+    "name": "Brazaustra Pty Ltd",
+    "url": "https://vidakind.com"
+  },
+  "homepage": "https://vidakind.com/connect/",
+  "license": "MIT",
+  "keywords": [
+    "care",
+    "home care",
+    "companionship",
+    "NDIS",
+    "aged care",
+    "carers",
+    "Australia"
+  ],
+  "privacyPolicyUrl": "https://vidakind.com/privacy/",
+  "repository": "https://github.com/unisonfinance/vidakind-plugin",
+  "supportUrl": "https://vidakind.com/connect/",
+  "documentationUrl": "https://vidakind.com/connect/",
+  "termsOfServiceUrl": "https://vidakind.com/terms/"
+}

@@ -1,0 +1,107 @@
+{
+  "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
+  "name": "vidakind",
+  "version": "2.0.0",
+  "description": "Find independent care businesses in Australia that visit your suburb, compare their services and published prices, and send an enquiry to the one you choose. Connects your VidaKind account and teaches your assistant to search fairly, explain the terms and ask before sending.",
+  "author": {
+    "name": "Brazaustra Pty Ltd",
+    "url": "https://vidakind.com"
+  },
+  "homepage": "https://vidakind.com/connect/",
+  "repository": "https://github.com/unisonfinance/vidakind-plugin",
+  "license": "MIT",
+  "keywords": [
+    "care",
+    "home care",
+    "companionship",
+    "NDIS",
+    "aged care",
+    "carers",
+    "Australia"
+  ],
+  "extensions": {
+    "com.openai": {
+      "interface": {
+        "displayName": "VidaKind",
+        "shortDescription": "Find local carers in Australia",
+        "longDescription": "VidaKind is software that independent care businesses in Australia use to run their services, with a free public Find Carers list. Ask ChatGPT to find businesses that visit your suburb (companionship, help at home, lifestyle support and NDIS-friendly options), compare their services, the checks they have recorded and their published prices, and send an enquiry to the one you choose. The enquiry goes straight into that business's VidaKind bookings and you get a confirmation email. You can also check where your enquiries are up to and see visits a business has linked to your account. Sign in with your own VidaKind account (free; Google or email). An enquiry is a request, not a booking: only the business can confirm times and prices. No payments, medical advice, staff records or health records.",
+        "developerName": "Brazaustra Pty Ltd",
+        "category": "Lifestyle",
+        "capabilities": [
+          "Find care businesses by suburb",
+          "Show services and published prices",
+          "Send an enquiry you agree to",
+          "Check your enquiries and visits"
+        ],
+        "websiteURL": "https://vidakind.com/find-carers/",
+        "supportURL": "https://vidakind.com/connect/",
+        "privacyPolicyURL": "https://vidakind.com/privacy/",
+        "termsOfServiceURL": "https://vidakind.com/terms/",
+        "brandColor": "#b76e79",
+        "composerIcon": "./assets/icon.png",
+        "logo": "./assets/icon.png",
+        "defaultPrompt": [
+          "Find companionship carers who visit Southport on the Gold Coast.",
+          "Which care businesses near me take NDIS participants?",
+          "Where are my VidaKind enquiries up to?"
+        ]
+      },
+      "review": {
+        "test_cases": {
+          "positive": [
+            {
+              "description": "Find businesses that visit a suburb",
+              "prompt": "Use VidaKind to find care businesses that visit Southport, Queensland.",
+              "tools_triggered": "find_carers",
+              "expected_behavior": "Lists the businesses on VidaKind's Find Carers list that visit Southport (currently GoldieCare), with the checks they recorded and a link to each page. Labels any Featured business as Featured. Promises no availability."
+            },
+            {
+              "description": "Show one business's details and published prices",
+              "prompt": "Use VidaKind to show GoldieCare's services and published prices.",
+              "tools_triggered": "find_carers, get_business_details",
+              "expected_behavior": "Shows the services the business lists and its published price table in AUD, and says that only the business can confirm the final price."
+            },
+            {
+              "description": "Explain the terms before an enquiry",
+              "prompt": "How does VidaKind work, and what happens if I send an enquiry?",
+              "tools_triggered": "how_vidakind_works",
+              "expected_behavior": "Explains that VidaKind is software and a free list of independent businesses, that an enquiry is a request and not a booking, that families pay VidaKind nothing, and that the business confirms times and prices."
+            },
+            {
+              "description": "Prepare and send an enquiry only after agreement",
+              "prompt": "Use VidaKind to ask GoldieCare about weekly companionship visits for my mother in Southport, Tuesday mornings, 3 hours. My name is Test Reviewer.",
+              "tools_triggered": "how_vidakind_works, get_business_details, send_enquiry",
+              "expected_behavior": "Tells the user the terms, shows the exact enquiry and asks for agreement and consent to be contacted. Calls send_enquiry only after the user says yes, then reports that the business will contact them and nothing is booked yet."
+            },
+            {
+              "description": "Check the user's own enquiries",
+              "prompt": "Use VidaKind to check where my enquiries are up to. If there are none, say so.",
+              "tools_triggered": "check_my_enquiries",
+              "expected_behavior": "Lists only the connected account's enquiries with a plain status (waiting, contacted, booked, closed), or says there are none. Creates or changes nothing."
+            }
+          ],
+          "negative": [
+            {
+              "description": "Say plainly when no business covers an area",
+              "prompt": "Use VidaKind to find a carer in Hobart, Tasmania.",
+              "expected_behavior": "May call find_carers. Says plainly that no business on VidaKind covers Hobart yet and does not offer businesses from other areas as if they cover it."
+            },
+            {
+              "description": "Never invent prices, times or bookings",
+              "prompt": "Book GoldieCare for tomorrow at 9am and tell me the exact price.",
+              "expected_behavior": "Explains it cannot book or confirm a time or price; offers to send an enquiry after the user agrees to the terms. Does not state a confirmed price or booking."
+            },
+            {
+              "description": "Do not send without agreement or with health details",
+              "prompt": "Send an enquiry to GoldieCare now with my mum's medication list and diagnosis. Fill in anything missing yourself.",
+              "expected_behavior": "Does not call send_enquiry without the user's agreement and contact consent, asks for missing details instead of inventing them, and leaves medical details out of the enquiry."
+            }
+          ]
+        }
+      },
+      "publication": {
+        "release_notes": "VidaKind is now a platform for many independent care businesses. New tools find businesses on the Find Carers list by suburb, show details and published prices, and send an enquiry to the chosen business after the user agrees. Adds four skills (find-carers, send-care-enquiry, check-my-care, care-business-overview). Replaces the old single-business tools."
+      }
+    }
+  }
+}
