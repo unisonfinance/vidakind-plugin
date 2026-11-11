@@ -18,6 +18,7 @@
     "carers",
     "Australia"
   ],
+  "icon": "./assets/icon.png",
   "privacyPolicyUrl": "https://vidakind.com/privacy/",
   "repository": "https://github.com/unisonfinance/vidakind-plugin",
   "supportUrl": "https://vidakind.com/connect/",
