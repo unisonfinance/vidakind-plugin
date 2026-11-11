@@ -1,6 +1,6 @@
 ---
 name: find-carers
-description: Find an independent care business in Australia on VidaKind's Find Carers list and compare options. Use when someone wants companionship, home care, help at home, lifestyle support or NDIS supports for themselves or a family member and names (or can name) a suburb or town, or asks what a VidaKind business offers or charges.
+description: Find an independent care business in Australia on VidaKind's Find Carers list and compare options. Use when someone wants companionship, home care, help at home, lifestyle support or NDIS supports for themselves or a family member and names (or can name) a suburb or town, or asks what a VidaKind business offers.
 ---
 
 # Find care businesses on VidaKind

@@ -2,7 +2,7 @@
   "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
   "name": "vidakind",
   "version": "2.0.0",
-  "description": "Find independent care businesses in Australia that visit your suburb, compare their services and published prices, and send an enquiry to the one you choose. Connects your VidaKind account and teaches your assistant to search fairly, explain the terms and ask before sending.",
+  "description": "Find independent care businesses in Australia that visit your suburb, compare what each one offers, and send an enquiry to the one you choose. Connects your VidaKind account and teaches your assistant to search fairly, explain the terms and ask before sending.",
   "author": {
     "name": "Brazaustra Pty Ltd",
     "url": "https://vidakind.com"
@@ -24,12 +24,12 @@
       "interface": {
         "displayName": "VidaKind",
         "shortDescription": "Find local carers in Australia",
-        "longDescription": "VidaKind is software that independent care businesses in Australia use to run their services, with a free public Find Carers list. Ask ChatGPT to find businesses that visit your suburb (companionship, help at home, lifestyle support and NDIS-friendly options), compare their services, the checks they have recorded and their published prices, and send an enquiry to the one you choose. The enquiry goes straight into that business's VidaKind bookings and you get a confirmation email. You can also check where your enquiries are up to and see visits a business has linked to your account. Sign in with your own VidaKind account (free; Google or email). An enquiry is a request, not a booking: only the business can confirm times and prices. No payments, medical advice, staff records or health records.",
+        "longDescription": "VidaKind is software that independent care businesses in Australia use to run their services, with a public Find Carers list. Ask ChatGPT to find businesses that visit your suburb (companionship, help at home, lifestyle support and NDIS-friendly options), compare their services and the checks they have recorded, and send an enquiry to the one you choose. The enquiry goes straight into that business's VidaKind bookings and you get a confirmation email. You can also check where your enquiries are up to and see visits a business has linked to your account. Sign in with your own VidaKind account (Google or email). An enquiry is a request, not a booking: only the business can confirm times and terms. No payments, medical advice, staff records or health records.",
         "developerName": "Brazaustra Pty Ltd",
-        "category": "Lifestyle",
+        "category": "Productivity",
         "capabilities": [
           "Find care businesses by suburb",
-          "Show services and published prices",
+          "Compare services and recorded checks",
           "Send an enquiry you agree to",
           "Check your enquiries and visits"
         ],
@@ -56,10 +56,10 @@
               "expected_behavior": "Lists the businesses on VidaKind's Find Carers list that visit Southport (currently GoldieCare), with the checks they recorded and a link to each page. Labels any Featured business as Featured. Promises no availability."
             },
             {
-              "description": "Show one business's details and published prices",
-              "prompt": "Use VidaKind to show GoldieCare's services and published prices.",
+              "description": "Show one business's details",
+              "prompt": "Use VidaKind to show GoldieCare's services and what its visits include.",
               "tools_triggered": "find_carers, get_business_details",
-              "expected_behavior": "Shows the services the business lists and its published price table in AUD, and says that only the business can confirm the final price."
+              "expected_behavior": "Shows the services the business lists, the areas it visits and the visit options it has published, and says that only the business can confirm details for the user."
             },
             {
               "description": "Explain the terms before an enquiry",
@@ -100,7 +100,7 @@
         }
       },
       "publication": {
-        "release_notes": "VidaKind is now a platform for many independent care businesses. New tools find businesses on the Find Carers list by suburb, show details and published prices, and send an enquiry to the chosen business after the user agrees. Adds four skills (find-carers, send-care-enquiry, check-my-care, care-business-overview). Replaces the old single-business tools."
+        "release_notes": "VidaKind is now a platform for many independent care businesses. New tools find businesses on the Find Carers list by suburb, show each business’s details, and send an enquiry to the chosen business after the user agrees. Adds four skills (find-carers, send-care-enquiry, check-my-care, care-business-overview). Replaces the old single-business tools."
       }
     }
   }
