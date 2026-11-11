@@ -41,7 +41,7 @@ Remove VidaKind in your assistant's connector settings. Access stops straight aw
 
 ## Help
 
-Guide: https://vidakind.com/connect/. Questions: support@vidakind.com. Terms: https://vidakind.com/terms/
+Guide: https://vidakind.com/connect/. Questions: contact@vidakind.com. Terms: https://vidakind.com/terms/
 
 ## License
 
